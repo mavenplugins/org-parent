@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>io.github.mavenplugins</groupId>
+  <artifactId>org-parent</artifactId>
+  <version>1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>mavenplugins org parent</name>
+  <description>The base parent for all open-source projects coming from mavenplugins.</description>
+  <url>https://github.com/mavenplugins/org-parent/</url>
+  <inceptionYear>2023</inceptionYear>
+
+  <organization>
+    <name>mavenplugins</name>
+    <url>https://github.com/mavenplugins/</url>
+  </organization>
+
+  <scm>
+    <connection>scm:git:https://github.com/mavenplugins/org-parent.git</connection>
+    <url>https://github.com/mavenplugins/org-parent</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/mavenplugins/org-parent/issues</url>
+  </issueManagement>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>${ossrh.snapshot.repo.url}</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>${ossrh.staging.repo.url}</url>
+    </repository>
+  </distributionManagement>
+
+  <repositories>
+    <repository>
+      <id>ossrh_snapshots</id>
+      <name>OSSRH Snapshots</name>
+      <url>${ossrh.snapshot.repo.url}</url>
+      <layout>default</layout>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <checksumPolicy>fail</checksumPolicy>
+      </snapshots>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>ossrh_plugin_snapshots</id>
+      <name>OSSRH Plugin Snapshots (plugins)</name>
+      <url>${ossrh.snapshot.repo.url}</url>
+      <layout>default</layout>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <checksumPolicy>fail</checksumPolicy>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <developers>
+    <developer>
+      <id>Developers</id>
+      <url>https://github.com/mavenplugins/org-parent/graphs/contributors</url>
+    </developer>
+  </developers>
+
+  <properties>
+    <project.scm.id>github</project.scm.id>
+    <!-- Sonatype and OSSRH config -->
+    <ossrh.base.repo.url>https://s01.oss.sonatype.org</ossrh.base.repo.url>
+    <ossrh.snapshot.repo.url>${ossrh.base.repo.url}/content/repositories/snapshots/</ossrh.snapshot.repo.url>
+    <ossrh.staging.repo.url>${ossrh.base.repo.url}/service/local/staging/deploy/maven2/</ossrh.staging.repo.url>
+    <!-- Apache Maven Plugin versions -->
+    <version.maven-gpg-plugin>3.1.0</version.maven-gpg-plugin>
+    <version.maven-javadoc-plugin>3.6.0</version.maven-javadoc-plugin>
+    <version.maven-source-plugin>3.0.1</version.maven-source-plugin>
+    <version.maven-help-plugin>3.4.0</version.maven-help-plugin>
+    <version.build-helper-maven-plugin>3.4.0</version.build-helper-maven-plugin>
+    <version.maven-antrun-plugin>1.8</version.maven-antrun-plugin>
+    <version.maven-install-plugin>2.5.2</version.maven-install-plugin>
+    <version.maven-deploy-plugin>2.8.2</version.maven-deploy-plugin>
+    <version.maven-release-plugin>2.5.3</version.maven-release-plugin>
+    <!-- Plugin dependency versions -->
+    <version.antrun.ant>1.8.4</version.antrun.ant>
+    <version.antrun.ant-contrib>1.0b3</version.antrun.ant-contrib>
+    <!-- Sonatype Nexus Staging Plugin version -->
+    <version.nexus-staging-maven-plugin>1.6.13</version.nexus-staging-maven-plugin>
+    <!-- Unleash plugins related config -->
+    <groupId.unleash.common>com.itemis.maven.plugins</groupId.unleash.common>
+    <!-- Unleash Maven Plugin -->
+    <groupId.unleash-maven-plugin>${groupId.unleash.common}</groupId.unleash-maven-plugin>
+    <artifactId.unleash-maven-plugin>unleash-maven-plugin</artifactId.unleash-maven-plugin>
+    <version.unleash-maven-plugin>2.10.0</version.unleash-maven-plugin>
+    <!-- Unleash SCM Provider -->
+    <groupId.unleash-scm-provider>${groupId.unleash.common}</groupId.unleash-scm-provider>
+    <artifactId.unleash-scm-provider>unleash-scm-provider-git</artifactId.unleash-scm-provider>
+    <version.unleash-scm-provider>2.3.0</version.unleash-scm-provider>
+    <!-- Unleash CDI Plugin Hooks -->
+    <groupId.cdi-plugin-hooks>${groupId.unleash.common}</groupId.cdi-plugin-hooks>
+    <artifactId.cdi-plugin-hooks>cdi-plugin-hooks</artifactId.cdi-plugin-hooks>
+    <version.cdi-plugin-hooks>0.1.1</version.cdi-plugin-hooks>
+    <!-- Plugin configuration properties -->
+    <skip.attach-sources>false</skip.attach-sources>
+    <!-- Overwrite <phase.attach-javadocs> with none or empty value, if attached-javadocs must be skipped -->
+    <phase.attach-javadocs>package</phase.attach-javadocs>
+    <javadoc.doclint>none</javadoc.doclint>
+    <skip.gpg.signing>true</skip.gpg.signing>
+    <staging.keepStagingRepositoryOnCloseRuleFailure>false</staging.keepStagingRepositoryOnCloseRuleFailure>
+    <!-- staging.autoReleaseAfterClose: should be set to false for testing on release version deployments. -->
+    <staging.autoReleaseAfterClose>true</staging.autoReleaseAfterClose>
+    <staging.dropPhaseNever>_NEVER_</staging.dropPhaseNever>
+    <staging.dropPhaseDeploy>deploy</staging.dropPhaseDeploy>
+    <!-- staging.dropPhase: must be either ${staging.dropPhaseNever} or ${staging.dropPhaseDeploy} -->
+    <!-- It should be overridden e.g. for testing on artifact release version deployments. -->
+    <!-- <staging.dropPhase>${staging.dropPhaseNever}</staging.dropPhase> -->
+    <staging.dropPhase>_NEVER_</staging.dropPhase>
+    <!-- With the staging plugins default of 5 minutes, this configuration allows you to set the timeout for staging operations. 
+      Changes are most often required for complex staging operations involving custom staging rules or Nexus IQ Server integration. -->
+    <staging.progressTimeoutMinutes>11</staging.progressTimeoutMinutes>
+    <!-- The staging plugins default of 3 seconds can be changed if larger pauses between progress polls for staging operations 
+      are desired. -->
+    <staging.progressPauseDurationSeconds>6</staging.progressPauseDurationSeconds>
+  </properties>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>${groupId.unleash-maven-plugin}</groupId>
+          <artifactId>${artifactId.unleash-maven-plugin}</artifactId>
+          <version>${version.unleash-maven-plugin}</version>
+          <dependencies>
+            <dependency>
+              <groupId>${groupId.unleash-scm-provider}</groupId>
+              <artifactId>${artifactId.unleash-scm-provider}</artifactId>
+              <version>${version.unleash-scm-provider}</version>
+            </dependency>
+            <dependency>
+              <groupId>${groupId.cdi-plugin-hooks}</groupId>
+              <artifactId>${artifactId.cdi-plugin-hooks}</artifactId>
+              <version>${version.cdi-plugin-hooks}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${version.maven-source-plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${version.maven-javadoc-plugin}</version>
+          <configuration>
+            <doclint>${javadoc.doclint}</doclint>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-help-plugin</artifactId>
+          <version>${version.maven-help-plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>${version.build-helper-maven-plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>${version.maven-antrun-plugin}</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.apache.ant</groupId>
+              <artifactId>ant</artifactId>
+              <version>${version.antrun.ant}</version>
+            </dependency>
+            <dependency>
+              <groupId>ant-contrib</groupId>
+              <artifactId>ant-contrib</artifactId>
+              <version>${version.antrun.ant-contrib}</version>
+              <exclusions>
+                <exclusion>
+                  <groupId>ant</groupId>
+                  <artifactId>ant</artifactId>
+                </exclusion>
+              </exclusions>
+            </dependency>
+          </dependencies>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>${version.maven-gpg-plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>${version.maven-release-plugin}</version>
+          <configuration>
+            <tagNameFormat>@{project.version}</tagNameFormat>
+            <useReleaseProfile>false</useReleaseProfile>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>${version.maven-install-plugin}</version>
+          <configuration>
+            <installAtEnd>true</installAtEnd>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${version.maven-deploy-plugin}</version>
+          <configuration>
+            <deployAtEnd>true</deployAtEnd>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <configuration>
+          <skipSource>${skip.attach-sources}</skipSource>
+        </configuration>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <phase>${phase.attach-javadocs}</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>signing</id>
+      <activation>
+        <property>
+          <name>env.OSSRH_GPG_PASSPHRASE</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <configuration>
+              <skip>${skip.gpg.signing}</skip>
+              <!-- since gpg2, pinentry mode has to be set to loopback for unattended passphrase usage -->
+              <gpgArguments>
+                <arg>--pinentry-mode</arg>
+                <arg>loopback</arg>
+              </gpgArguments>
+            </configuration>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <!-- The order of profiles DO_NOT_RELEASE_SONATYPE_STAGING and IS_SNAPSHOT_VERSION matters! Profile IS_SNAPSHOT_VERSION 
+      must overrule profile DO_NOT_RELEASE_SONATYPE_STAGING! -->
+    <profile>
+      <id>DO_NOT_RELEASE_SONATYPE_STAGING</id>
+      <activation>
+        <property>
+          <name>env.DO_NOT_RELEASE_SONATYPE_STAGING</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <properties>
+        <staging.autoReleaseAfterClose>false</staging.autoReleaseAfterClose>
+        <staging.dropPhase>${staging.dropPhaseDeploy}</staging.dropPhase>
+      </properties>
+    </profile>
+    <profile>
+      <id>IS_SNAPSHOT_VERSION</id>
+      <activation>
+        <property>
+          <name>env.IS_SNAPSHOT_VERSION</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <properties>
+        <staging.autoReleaseAfterClose>false</staging.autoReleaseAfterClose>
+        <staging.dropPhase>${staging.dropPhaseNever}</staging.dropPhase>
+      </properties>
+    </profile>
+    <profile>
+      <id>staging</id>
+      <activation>
+        <property>
+          <name>env.SONATYPE_USERNAME</name>
+        </property>
+      </activation>
+      <properties>
+        <skip.gpg.signing>false</skip.gpg.signing>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <!-- We have to explicitly skip maven-deploy-plugin execution, since nexus-staging-maven-plugin does not disable 
+              this in case we define explicit executions for nexus-staging-maven-plugin! -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <configuration>
+              <skip>true</skip>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>${version.nexus-staging-maven-plugin}</version>
+            <extensions>true</extensions>
+            <configuration>
+              <serverId>ossrh</serverId>
+              <nexusUrl>${ossrh.base.repo.url}</nexusUrl>
+              <stagingProgressTimeoutMinutes>${staging.progressTimeoutMinutes}</stagingProgressTimeoutMinutes>
+              <stagingProgressPauseDurationSeconds>${staging.progressPauseDurationSeconds}</stagingProgressPauseDurationSeconds>
+              <keepStagingRepositoryOnCloseRuleFailure>${staging.keepStagingRepositoryOnCloseRuleFailure}</keepStagingRepositoryOnCloseRuleFailure>
+              <autoReleaseAfterClose>${staging.autoReleaseAfterClose}</autoReleaseAfterClose>
+            </configuration>
+            <executions>
+              <!-- We have to define the default-deploy explicitly here, since we define another optional execution to drop 
+                the staging repo. This is required, since nexus-staging-maven-plugin does not perform the default-deploy, if there is another 
+                explicit execution defined! -->
+              <execution>
+                <id>default-deploy</id>
+                <phase>deploy</phase>
+                <goals>
+                  <goal>deploy</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>STAGING_EXPLICIT_DROP_AFTER_DEPLOY</id>
+                <phase>${staging.dropPhase}</phase>
+                <goals>
+                  <goal>drop</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>
