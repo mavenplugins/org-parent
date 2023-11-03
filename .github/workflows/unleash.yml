@@ -4,15 +4,21 @@ on:
   workflow_dispatch:
     inputs:
       releaseVersion:
-        required: true
+        required: false
         type: string
-        description: The version to release
-        default: x.y.z
+        description: "Release Version or empty - automatically determined then"
+        default: ''
       nextSnapshotVersion:
-        required: true
+        required: false
         type: string
-        description: The version to release
-        default: x.y.z-SNAPSHOT
+        description: "Next Snapshot Version or empty - auto-incremented then"
+        default: ''
+      releaseToMavenCentral:
+        required: false
+        type: boolean
+        description: "Release to Maven Central - DryRun otherwise"
+        default: false
+        
 #  push:
 #    tags:
 #      - '*'
@@ -29,6 +35,7 @@ jobs:
       runner: ubuntu-latest
       releaseVersion: ${{ inputs.releaseVersion }}
       nextSnapshotVersion: ${{ inputs.nextSnapshotVersion }}
+      releaseToMavenCentral: ${{ inputs.releaseToMavenCentral }}
 
     secrets: inherit
 
