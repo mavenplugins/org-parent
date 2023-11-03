@@ -40,19 +40,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!--
 ## [Unreleased]
 
-### Added
+### Additions
 - TBD
 
-### Changed
+### Changes
 - TBD
 
 ### Deprecated
 - TBD
 
-###	Removed
+###	Removals
 - TBD
 
-### Fixed
+### Fixes
 - TBD
 
 ###	Security
@@ -61,11 +61,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-### Changed
+### Changes
 - TBD
 
 
 ## [1]
+
+### Summary
+- Initial release
 
 ### Features
 - Define common Maven plugin versions via properties
@@ -73,8 +76,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Profile based executions to sign and stage artifacts to Sonatype OSSRH and Maven Central
 - Profiles being activated by system environment variables to leverage several CICD use cases
 
-### Comments
-- Initial release
 
 <!--
 ## []
