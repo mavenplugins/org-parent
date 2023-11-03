@@ -1,0 +1,44 @@
+name: Maven unleash
+
+on:
+  workflow_dispatch:
+    inputs:
+      releaseVersion:
+        required: true
+        type: string
+        description: The version to release
+        default: x.y.z
+      nextSnapshotVersion:
+        required: true
+        type: string
+        description: The version to release
+        default: x.y.z-SNAPSHOT
+#  push:
+#    tags:
+#      - '*'
+
+jobs:
+  # Deploy next snapshot
+  job1_Call_Unleash:
+    name: Unleash ${{ github.repository }}
+    # Elevate permission on repo content to write to allow git pushing
+    permissions:
+      contents: write
+    uses: mavenplugins/reusable-gh-actions/.github/workflows/__maven_unleash.yml@master
+    with:
+      runner: ubuntu-latest
+      releaseVersion: ${{ inputs.releaseVersion }}
+      nextSnapshotVersion: ${{ inputs.nextSnapshotVersion }}
+
+    secrets: inherit
+
+  # Deploy next snapshot, if job1 did succeed
+  job2_Call_Build_and_Deploy:
+    name: Build next snapshot
+    needs: job1_Call_Unleash
+    uses: mavenplugins/reusable-gh-actions/.github/workflows/__maven_clean_deploy.yml@master
+    with:
+      runner: ubuntu-latest
+      deploy_snapshots_only: true
+
+    secrets: inherit
