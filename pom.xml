@@ -99,6 +99,7 @@
     <organization.releaseNexusRepoId>${organization.commonNexusRepoId}</organization.releaseNexusRepoId>
     <organization.stagingServerId>${organization.releaseNexusRepoId}</organization.stagingServerId>
     <!-- Apache Maven Plugin versions -->
+    <version.maven-toolchains-plugin>3.1.0</version.maven-toolchains-plugin>
     <version.maven-gpg-plugin>3.1.0</version.maven-gpg-plugin>
     <version.maven-javadoc-plugin>3.6.0</version.maven-javadoc-plugin>
     <version.maven-source-plugin>3.0.1</version.maven-source-plugin>
@@ -129,30 +130,44 @@
     <version.cdi-plugin-hooks>0.1.1</version.cdi-plugin-hooks>
     <!-- Plugin configuration properties -->
     <skip.attach-sources>false</skip.attach-sources>
-    <!-- Overwrite <phase.attach-javadocs> with none or empty value, if attached-javadocs must be skipped -->
+    <!-- Note: Overwrite <phase.attach-javadocs> with none or empty value, if attached-javadocs must be skipped -->
     <phase.attach-javadocs>package</phase.attach-javadocs>
     <javadoc.doclint>none</javadoc.doclint>
     <skip.gpg.signing>true</skip.gpg.signing>
+    <!-- Maven Toolchain -->
+    <toolchain.executionEnablePhase>validate</toolchain.executionEnablePhase>
+    <toolchain.executionDisablePhase>_NEVER_</toolchain.executionDisablePhase>
+    <toolchain.executionPhase>${toolchain.executionDisablePhase}</toolchain.executionPhase>
+    <!-- Note: toolchain.jdkVersion is empty by default. It is supposed to be either set by profile 'toolchain' below, by 
+      -D option via MAVEN_OPTS, on mvn commandline or by settings.xml -->
+    <toolchain.jdkVersion></toolchain.jdkVersion>
+    <!-- Sonatype staging -->
     <staging.keepStagingRepositoryOnCloseRuleFailure>false</staging.keepStagingRepositoryOnCloseRuleFailure>
     <!-- staging.autoReleaseAfterClose: should be set to false for testing on release version deployments. -->
     <staging.autoReleaseAfterClose>true</staging.autoReleaseAfterClose>
     <staging.dropPhaseNever>_NEVER_</staging.dropPhaseNever>
     <staging.dropPhaseDeploy>deploy</staging.dropPhaseDeploy>
-    <!-- staging.dropPhase: must be either ${staging.dropPhaseNever} or ${staging.dropPhaseDeploy} -->
+    <!-- Note: staging.dropPhase: must be either ${staging.dropPhaseNever} or ${staging.dropPhaseDeploy} -->
     <!-- It should be overridden e.g. for testing on artifact release version deployments. -->
     <!-- <staging.dropPhase>${staging.dropPhaseNever}</staging.dropPhase> -->
     <staging.dropPhase>_NEVER_</staging.dropPhase>
-    <!-- With the staging plugins default of 5 minutes, this configuration allows you to set the timeout for staging operations. 
-      Changes are most often required for complex staging operations involving custom staging rules or Nexus IQ Server integration. -->
-    <staging.progressTimeoutMinutes>11</staging.progressTimeoutMinutes>
-    <!-- The staging plugins default of 3 seconds can be changed if larger pauses between progress polls for staging operations 
-      are desired. -->
+    <!-- Note: With the staging plugins default of 5 minutes, this configuration allows you to set the timeout for staging 
+      operations. Changes are most often required for complex staging operations involving custom staging rules or Nexus IQ Server 
+      integration. -->
+    <staging.progressTimeoutMinutes>13</staging.progressTimeoutMinutes>
+    <!-- Note: The staging plugins default of 3 seconds can be changed if larger pauses between progress polls for staging 
+      operations are desired. -->
     <staging.progressPauseDurationSeconds>6</staging.progressPauseDurationSeconds>
   </properties>
 
   <build>
     <pluginManagement>
       <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-toolchains-plugin</artifactId>
+          <version>${version.maven-toolchains-plugin}</version>
+        </plugin>
         <plugin>
           <groupId>${groupId.unleash-maven-plugin}</groupId>
           <artifactId>${artifactId.unleash-maven-plugin}</artifactId>
@@ -251,6 +266,26 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-toolchains-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default</id>
+            <phase>${toolchain.executionPhase}</phase>
+            <goals>
+              <goal>toolchain</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <toolchains>
+            <jdk>
+              <version>${toolchain.jdkVersion}</version>
+            </jdk>
+          </toolchains>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
         <configuration>
           <skipSource>${skip.attach-sources}</skipSource>
@@ -281,6 +316,22 @@
   </build>
 
   <profiles>
+    <!-- Toolchain profile: Activated if SysEnv variable MAVEN_TOOLCHAIN_VERSION is defined. -->
+    <profile>
+      <id>toolchain</id>
+      <activation>
+        <property>
+          <name>env.MAVEN_TOOLCHAIN_VERSION</name>
+        </property>
+      </activation>
+      <properties>
+        <toolchain.executionPhase>${toolchain.executionEnablePhase}</toolchain.executionPhase>
+        <toolchain.jdkVersion>${env.MAVEN_TOOLCHAIN_VERSION}</toolchain.jdkVersion>
+      </properties>
+    </profile>
+    <!-- Signing profile: Activated if SysEnv variable OSSRH_GPG_PASSPHRASE is defined. -->
+    <!-- Note: This profile requires the following <server> node being defined in settings.xml: -->
+    <!-- <servers> ... <server><id>gpg.passphrase</id><passphrase>${env.OSSRH_GPG_PASSPHRASE}</passphrase></server> ... </servers> -->
     <profile>
       <id>signing</id>
       <activation>
@@ -314,8 +365,8 @@
         </plugins>
       </build>
     </profile>
-    <!-- The order of profiles DO_NOT_RELEASE_SONATYPE_STAGING and IS_SNAPSHOT_VERSION matters! Profile IS_SNAPSHOT_VERSION 
-      must overrule profile DO_NOT_RELEASE_SONATYPE_STAGING! -->
+    <!-- The order of profiles 'DO_NOT_RELEASE_SONATYPE_STAGING' and 'IS_SNAPSHOT_VERSION' matters! Profile 'IS_SNAPSHOT_VERSION' 
+      must overrule profile 'DO_NOT_RELEASE_SONATYPE_STAGING'! -->
     <profile>
       <id>DO_NOT_RELEASE_SONATYPE_STAGING</id>
       <activation>
@@ -356,8 +407,8 @@
       <build>
         <plugins>
           <plugin>
-            <!-- We have to explicitly skip maven-deploy-plugin execution, since nexus-staging-maven-plugin does not disable 
-              this in case we define explicit executions for nexus-staging-maven-plugin! -->
+            <!-- Note: We have to explicitly skip maven-deploy-plugin execution, since nexus-staging-maven-plugin does not 
+              disable this in case we define explicit executions for nexus-staging-maven-plugin! -->
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-deploy-plugin</artifactId>
             <configuration>
@@ -378,9 +429,9 @@
               <autoReleaseAfterClose>${staging.autoReleaseAfterClose}</autoReleaseAfterClose>
             </configuration>
             <executions>
-              <!-- We have to define the default-deploy explicitly here, since we define another optional execution to drop 
-                the staging repo. This is required, since nexus-staging-maven-plugin does not perform the default-deploy, if there is another 
-                explicit execution defined! -->
+              <!-- Note: We have to define the default-deploy explicitly here, since we define another optional execution 
+                to drop the staging repo. This is required, since nexus-staging-maven-plugin does not perform the default-deploy, if there 
+                is another explicit execution defined! -->
               <execution>
                 <id>default-deploy</id>
                 <phase>deploy</phase>
