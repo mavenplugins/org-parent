@@ -39,21 +39,21 @@
 
   <distributionManagement>
     <snapshotRepository>
-      <id>organization_nexus</id>
-      <url>${organization.snapshot.nexus.url}</url>
+      <id>${organization.snapshotNexusRepoId}</id>
+      <url>${organization.snapshotNexusURL}</url>
     </snapshotRepository>
     <repository>
-      <id>organization_nexus</id>
-      <url>${organization.staging.nexus.url}</url>
+      <id>${organization.releaseNexusRepoId}</id>
+      <url>${organization.stagingNexusURL}</url>
     </repository>
   </distributionManagement>
 
   <!-- Add organization related snapshot repos, since releases will be looked up to Maven Central by default. -->
   <repositories>
     <repository>
-      <id>organization_nexus_snapshots</id>
-      <name>${organization.name.hosting.nexus} Snapshots</name>
-      <url>${organization.snapshot.nexus.url}</url>
+      <id>${organization.snapshotNexusRepoId}</id>
+      <name>${organization.nameHostingNexus} Snapshots</name>
+      <url>${organization.snapshotNexusURL}</url>
       <layout>default</layout>
       <releases>
         <enabled>false</enabled>
@@ -66,9 +66,9 @@
   </repositories>
   <pluginRepositories>
     <pluginRepository>
-      <id>organization_nexus_snapshopts</id>
-      <name>${organization.name.hosting.nexus} Plugin Snapshots (plugins)</name>
-      <url>${organization.snapshot.nexus.url}</url>
+      <id>${organization.snapshotNexusRepoId}</id>
+      <name>${organization.nameHostingNexus} Plugin Snapshots (plugins)</name>
+      <url>${organization.snapshotNexusURL}</url>
       <layout>default</layout>
       <releases>
         <enabled>false</enabled>
@@ -90,10 +90,14 @@
   <properties>
     <project.scm.id>github</project.scm.id>
     <!-- Sonatype and OSSRH Nexus config -->
-    <organization.name.hosting.nexus>Sonatype OSSRH</organization.name.hosting.nexus>
-    <organization.base.nexus.url>https://s01.oss.sonatype.org</organization.base.nexus.url>
-    <organization.snapshot.nexus.url>${organization.base.nexus.url}/content/repositories/snapshots/</organization.snapshot.nexus.url>
-    <organization.staging.nexus.url>${organization.base.nexus.url}/service/local/staging/deploy/maven2/</organization.staging.nexus.url>
+    <organization.nameHostingNexus>Sonatype OSSRH</organization.nameHostingNexus>
+    <organization.baseNexusURL>https://s01.oss.sonatype.org</organization.baseNexusURL>
+    <organization.snapshotNexusURL>${organization.baseNexusURL}/content/repositories/snapshots/</organization.snapshotNexusURL>
+    <organization.stagingNexusURL>${organization.baseNexusURL}/service/local/staging/deploy/maven2/</organization.stagingNexusURL>
+    <organization.commonNexusRepoId>organization_nexus</organization.commonNexusRepoId>
+    <organization.snapshotNexusRepoId>${organization.commonNexusRepoId}</organization.snapshotNexusRepoId>
+    <organization.releaseNexusRepoId>${organization.commonNexusRepoId}</organization.releaseNexusRepoId>
+    <organization.stagingServerId>${organization.releaseNexusRepoId}</organization.stagingServerId>
     <!-- Apache Maven Plugin versions -->
     <version.maven-gpg-plugin>3.1.0</version.maven-gpg-plugin>
     <version.maven-javadoc-plugin>3.6.0</version.maven-javadoc-plugin>
@@ -336,6 +340,7 @@
       <properties>
         <staging.autoReleaseAfterClose>false</staging.autoReleaseAfterClose>
         <staging.dropPhase>${staging.dropPhaseNever}</staging.dropPhase>
+        <organization.stagingServerId>${organization.snapshotNexusRepoId}</organization.stagingServerId>
       </properties>
     </profile>
     <profile>
@@ -365,8 +370,8 @@
             <version>${version.nexus-staging-maven-plugin}</version>
             <extensions>true</extensions>
             <configuration>
-              <serverId>organization_nexus</serverId>
-              <nexusUrl>${organization.base.nexus.url}</nexusUrl>
+              <serverId>${organization.stagingServerId}</serverId>
+              <nexusUrl>${organization.baseNexusURL}</nexusUrl>
               <stagingProgressTimeoutMinutes>${staging.progressTimeoutMinutes}</stagingProgressTimeoutMinutes>
               <stagingProgressPauseDurationSeconds>${staging.progressPauseDurationSeconds}</stagingProgressPauseDurationSeconds>
               <keepStagingRepositoryOnCloseRuleFailure>${staging.keepStagingRepositoryOnCloseRuleFailure}</keepStagingRepositoryOnCloseRuleFailure>
