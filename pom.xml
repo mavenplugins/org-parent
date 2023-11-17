@@ -132,7 +132,8 @@
     <skip.attach-sources>false</skip.attach-sources>
     <!-- Note: Overwrite <phase.attach-javadocs> with none or empty value, if attached-javadocs must be skipped -->
     <phase.attach-javadocs>package</phase.attach-javadocs>
-    <javadoc.doclint>none</javadoc.doclint>
+    <!-- Note: Override javadoc.doclint if required. This must be set for JAVADOC >= 8 only! -->
+    <javadoc.doclint></javadoc.doclint>
     <skip.gpg.signing>true</skip.gpg.signing>
     <!-- Maven Toolchain -->
     <toolchain.executionEnablePhase>validate</toolchain.executionEnablePhase>
