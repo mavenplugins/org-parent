@@ -66,6 +66,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [1]
+<!-- !!! Align version in badge URLs as well !!! -->
+[![1 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=1)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/1)
 
 ### Summary
 - Initial release
@@ -76,6 +78,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Profile based executions to sign and stage artifacts to Sonatype OSSRH and Maven Central
 - Profiles being activated by system environment variables to leverage several CICD use cases
 
+### Usage
+- For details on usage please have a look to the comments in [pom.xml](pom.xml)
+- Use as parent pom:
+  ```
+  <parent>
+    <groupId>io.github.mavenplugins</groupId>
+    <artifactId>org-parent</artifactId>
+    <version>1</version>
+  </parent>
+  ```
+
 
 <!--
 ## []
@@ -84,5 +97,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - This is just a dummy placeholder to make the parser of GHCICD/release-notes-from-changelog@v1 happy!
 -->
 
-[Unreleased]: https://github.com/mavenplugins/org-parent/releases/tag/v1..HEAD
+[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v1..HEAD
 [1]: https://github.com/mavenplugins/org-parent/releases/tag/v1
