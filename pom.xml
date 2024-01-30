@@ -89,6 +89,8 @@
 
   <properties>
     <project.scm.id>github</project.scm.id>
+    <!-- General Properties -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!-- Sonatype and OSSRH Nexus config -->
     <organization.nameHostingNexus>Sonatype OSSRH</organization.nameHostingNexus>
     <organization.baseNexusURL>https://s01.oss.sonatype.org</organization.baseNexusURL>
@@ -101,6 +103,7 @@
     <!-- Apache Maven Plugin versions -->
     <version.maven-toolchains-plugin>3.1.0</version.maven-toolchains-plugin>
     <version.maven-gpg-plugin>3.1.0</version.maven-gpg-plugin>
+    <version.maven-compiler-plugin>3.12.1</version.maven-compiler-plugin>
     <version.maven-javadoc-plugin>3.6.0</version.maven-javadoc-plugin>
     <version.maven-source-plugin>3.0.1</version.maven-source-plugin>
     <version.maven-help-plugin>3.4.0</version.maven-help-plugin>
@@ -115,7 +118,7 @@
     <!-- Sonatype Nexus Staging Plugin version -->
     <version.nexus-staging-maven-plugin>1.6.13</version.nexus-staging-maven-plugin>
     <!-- Unleash plugins related config -->
-    <groupId.unleash.common>com.itemis.maven.plugins</groupId.unleash.common>
+    <groupId.unleash.common>io.github.mavenplugins</groupId.unleash.common>
     <!-- Unleash Maven Plugin -->
     <groupId.unleash-maven-plugin>${groupId.unleash.common}</groupId.unleash-maven-plugin>
     <artifactId.unleash-maven-plugin>unleash-maven-plugin</artifactId.unleash-maven-plugin>
@@ -163,6 +166,11 @@
     <version.java>1.8</version.java>
     <maven.compiler.source>${version.java}</maven.compiler.source>
     <maven.compiler.target>${version.java}</maven.compiler.target>
+    <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
+    <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
+    <maven.compiler.meminitial />
+    <maven.compiler.maxmem />
+    <maven.compiler.compilerArgument />
   </properties>
 
   <build>
@@ -189,6 +197,22 @@
               <version>${version.cdi-plugin-hooks}</version>
             </dependency>
           </dependencies>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${version.maven-compiler-plugin}</version>
+          <configuration>
+            <source>${maven.compiler.source}</source>
+            <target>${maven.compiler.target}</target>
+            <showDeprecation>${maven.compiler.showDeprecation}</showDeprecation>
+            <showWarnings>${maven.compiler.showWarnings}</showWarnings>
+            <debug>true</debug>
+            <fork>true</fork>
+            <meminitial>${maven.compiler.meminitial}</meminitial>
+            <maxmem>${maven.compiler.maxmem}</maxmem>
+            <compilerArgument>${maven.compiler.compilerArgument}</compilerArgument>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>

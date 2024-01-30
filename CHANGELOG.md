@@ -60,9 +60,40 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -->
 
 ## [Unreleased]
+[![3 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=3)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/3)
 
 ### Changes
 - TBD
+
+
+## [2]
+<!-- !!! Align version in badge URLs as well !!! -->
+[![2 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=2)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/2)
+
+### Summary
+- Default groupId for all unleash plugins is now `io.github.mavenplugins`
+
+### Changes
+- Add plugin management configuration for `maven-compiler-plugin`
+- Default version for `maven-compiler-plugin` is `3.12.1`
+- Update property `<groupId.unleash.common>io.github.mavenplugins</groupId.unleash.common>`
+
+### Features
+- Define common Maven plugin versions via properties
+- Define Unleash plugins with groupId, artifactId and version via individual properties
+- Profile based executions to sign and stage artifacts to Sonatype OSSRH and Maven Central
+- Profiles being activated by system environment variables to leverage several CICD use cases
+
+### Usage
+- For details on usage please have a look to the comments in [pom.xml](pom.xml)
+- Use as parent pom:
+  ```
+  <parent>
+    <groupId>io.github.mavenplugins</groupId>
+    <artifactId>org-parent</artifactId>
+    <version>2</version>
+  </parent>
+  ```
 
 
 ## [1]
@@ -97,5 +128,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - This is just a dummy placeholder to make the parser of GHCICD/release-notes-from-changelog@v1 happy!
 -->
 
-[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v1..HEAD
+[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v2..HEAD
+[2]: https://github.com/mavenplugins/org-parent/compare/v1..v2
 [1]: https://github.com/mavenplugins/org-parent/releases/tag/v1
