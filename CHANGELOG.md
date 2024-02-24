@@ -77,11 +77,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Add plugin management configuration for `maven-compiler-plugin`
 - Default version for `maven-compiler-plugin` is `3.12.1`
 - Update property `<groupId.unleash.common>io.github.mavenplugins</groupId.unleash.common>`
+- Add usage of `maven-enforcer-plugin` to enforce a minimum Maven version for building
+- Add a config for `org.eclipse.m2e:lifecycle-mapping`
 
 ### Features
 - Define common Maven plugin versions via properties
 - Define Unleash plugins with groupId, artifactId and version via individual properties
-- Profile based executions to sign and stage artifacts to Sonatype OSSRH and Maven Central
+- Profile based executions to sign and stage artifacts to Sonatype OSSRH or Maven Central
 - Profiles being activated by system environment variables to leverage several CICD use cases
 
 ### Usage
