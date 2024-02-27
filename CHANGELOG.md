@@ -60,10 +60,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -->
 
 ## [Unreleased]
-[![3 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=3)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/3)
+<!-- !!! Align version in badge URLs as well !!! -->
+[![4 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=4)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/4)
 
 ### Changes
 - TBD
+
+
+## [3]
+<!-- !!! Align version in badge URLs as well !!! -->
+[![3 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=3)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/3)
+
+### Summary
+- Fix profile `m2e`
+
+### Fixes
+- Fix profile `m2e`:
+  - update activating property `m2e.version` -> `osgi.requiredJavaVersion`
+  - add plugins `maven-plugin-plugin` and `plexus-component-metadata` to m2e lifecycle mapping
 
 
 ## [2]
@@ -130,6 +144,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - This is just a dummy placeholder to make the parser of GHCICD/release-notes-from-changelog@v1 happy!
 -->
 
-[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v2..HEAD
+[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v3..HEAD
+[3]: https://github.com/mavenplugins/org-parent/compare/v2..v3
 [2]: https://github.com/mavenplugins/org-parent/compare/v1..v2
 [1]: https://github.com/mavenplugins/org-parent/releases/tag/v1
