@@ -81,6 +81,32 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   ```
 
 
+## [5]
+<!-- !!! Align version in badge URLs as well !!! -->
+[![5 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=4)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/5)
+
+### Summary
+- Update `version.unleash-maven-plugin -> 3.0.0`
+- Update `version.unleash-scm-provider-git -> 3.0.0`
+- Update `version.cdi-plugin-hooks -> 0.2.0`
+
+### Changes
+- Update property `<version.unleash-maven-plugin>3.0.0</version.unleash-maven-plugin>`
+- Update property `<version.unleash-scm-provider-git>3.0.0</version.unleash-scm-provider-git>`
+- Update property `<version.cdi-plugin-hooks>0.2.0</version.cdi-plugin-hooks>`
+
+### Usage
+- For details on usage please have a look to the comments in [pom.xml](pom.xml)
+- Use as parent pom:
+  ```
+  <parent>
+    <groupId>io.github.mavenplugins</groupId>
+    <artifactId>org-parent</artifactId>
+    <version>5</version>
+  </parent>
+  ```
+
+
 ## [4]
 <!-- !!! Align version in badge URLs as well !!! -->
 [![4 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=4)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/4)
@@ -201,7 +227,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - This is just a dummy placeholder to make the parser of GHCICD/release-notes-from-changelog@v1 happy!
 -->
 
-[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v4..HEAD
+[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v5..HEAD
+[5]: https://github.com/mavenplugins/org-parent/compare/v4..v5
 [4]: https://github.com/mavenplugins/org-parent/compare/v3..v4
 [3]: https://github.com/mavenplugins/org-parent/compare/v2..v3
 [2]: https://github.com/mavenplugins/org-parent/compare/v1..v2

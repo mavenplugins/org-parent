@@ -123,19 +123,19 @@
     <!-- Unleash Maven Plugin -->
     <groupId.unleash-maven-plugin>${groupId.unleash.common}</groupId.unleash-maven-plugin>
     <artifactId.unleash-maven-plugin>unleash-maven-plugin</artifactId.unleash-maven-plugin>
-    <version.unleash-maven-plugin>2.11.0</version.unleash-maven-plugin>
+    <version.unleash-maven-plugin>3.0.0</version.unleash-maven-plugin>
     <!-- Unleash SCM Provider -->
     <groupId.unleash-scm-provider>${groupId.unleash.common}</groupId.unleash-scm-provider>
     <groupId.unleash-scm-provider-git>${groupId.unleash-scm-provider}</groupId.unleash-scm-provider-git>
     <artifactId.unleash-scm-provider-git>unleash-scm-provider-git</artifactId.unleash-scm-provider-git>
-    <version.unleash-scm-provider-git>2.4.0</version.unleash-scm-provider-git>
+    <version.unleash-scm-provider-git>3.0.0</version.unleash-scm-provider-git>
     <groupId.unleash-scm-provider-svn>${groupId.unleash-scm-provider}</groupId.unleash-scm-provider-svn>
     <artifactId.unleash-scm-provider-svn>unleash-scm-provider-svn</artifactId.unleash-scm-provider-svn>
-    <version.unleash-scm-provider-svn>2.2.0</version.unleash-scm-provider-svn>
+    <version.unleash-scm-provider-svn>3.0.0</version.unleash-scm-provider-svn>
     <!-- Unleash CDI Plugin Hooks -->
     <groupId.cdi-plugin-hooks>${groupId.unleash.common}</groupId.cdi-plugin-hooks>
     <artifactId.cdi-plugin-hooks>cdi-plugin-hooks</artifactId.cdi-plugin-hooks>
-    <version.cdi-plugin-hooks>0.1.2</version.cdi-plugin-hooks>
+    <version.cdi-plugin-hooks>0.2.0</version.cdi-plugin-hooks>
     <!-- Plugin configuration properties -->
     <skip.attach-sources>false</skip.attach-sources>
     <!-- Note: Overwrite <phase.attach-javadocs> with none or empty value, if attached-javadocs must be skipped -->
