@@ -83,7 +83,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [5]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![5 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=4)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/5)
+[![5 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=5)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/5)
 
 ### Summary
 - Update `version.unleash-maven-plugin -> 3.0.0`
