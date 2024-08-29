@@ -61,13 +61,35 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![7 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=7)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/7)
+[![8 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=8)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/8)
 
 ### Summary
 - TBD
 
 ### Changes
 - TBD
+
+### Usage
+- For details on usage please have a look to the comments in [pom.xml](pom.xml)
+- Use as parent pom:
+  ```
+  <parent>
+    <groupId>io.github.mavenplugins</groupId>
+    <artifactId>org-parent</artifactId>
+    <version>8</version>
+  </parent>
+  ```
+
+
+## [7]
+<!-- !!! Align version in badge URLs as well !!! -->
+[![7 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=7)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/7)
+
+### Summary
+- Update `version.unleash-maven-plugin -> 3.0.3`
+
+### Changes
+- Update property `<version.unleash-maven-plugin>3.0.3</version.unleash-maven-plugin>`
 
 ### Usage
 - For details on usage please have a look to the comments in [pom.xml](pom.xml)
@@ -257,7 +279,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - This is just a dummy placeholder to make the parser of GHCICD/release-notes-from-changelog@v1 happy!
 -->
 
-[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v6..HEAD
+[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v7..HEAD
+[7]: https://github.com/mavenplugins/org-parent/compare/v6..v7
 [6]: https://github.com/mavenplugins/org-parent/compare/v5..v6
 [5]: https://github.com/mavenplugins/org-parent/compare/v4..v5
 [4]: https://github.com/mavenplugins/org-parent/compare/v3..v4

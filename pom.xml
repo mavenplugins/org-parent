@@ -123,7 +123,7 @@
     <!-- Unleash Maven Plugin -->
     <groupId.unleash-maven-plugin>${groupId.unleash.common}</groupId.unleash-maven-plugin>
     <artifactId.unleash-maven-plugin>unleash-maven-plugin</artifactId.unleash-maven-plugin>
-    <version.unleash-maven-plugin>3.0.1</version.unleash-maven-plugin>
+    <version.unleash-maven-plugin>3.0.3</version.unleash-maven-plugin>
     <!-- Unleash SCM Provider -->
     <groupId.unleash-scm-provider>${groupId.unleash.common}</groupId.unleash-scm-provider>
     <groupId.unleash-scm-provider-git>${groupId.unleash-scm-provider}</groupId.unleash-scm-provider-git>
