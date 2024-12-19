@@ -40,43 +40,85 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!--
 ## [Unreleased]
 
-### Additions
+### 🚨 Removed
 - TBD
 
-### Changes
+### 💥 Breaking
 - TBD
 
-### Deprecated
+### 📢 Deprecated
 - TBD
 
-###	Removals
+### 🚀 New Features
 - TBD
 
-### Fixes
+### 🐛 Fixes
 - TBD
 
-###	Security
+### ✨ Improvements
+- TBD
+
+### 🔧 Internal Changes
+- TBD
+
+### 🚦 Tests
+- TBD
+
+### 📦 Updates
+- TBD
+
+### 🔒 Security
+- TBD
+
+### 📝 Documentation Updates
 - TBD
 -->
 
 ## [Unreleased]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![9 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=9)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/9)
+[![10 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=9)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/10)
 
 ### Summary
 - TBD
 
-### Changes
+### 📦 Updates
 - TBD
 
-### Usage
+### 📝 Usage
 - For details on usage please have a look to the comments in [pom.xml](pom.xml)
 - Use as parent pom:
   ```
   <parent>
     <groupId>io.github.mavenplugins</groupId>
     <artifactId>org-parent</artifactId>
-    <version>8</version>
+    <version>10</version>
+  </parent>
+  ```
+
+
+## [9]
+<!-- !!! Align version in badge URLs as well !!! -->
+[![9 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=9)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/9)
+
+### Summary
+- Update `version.unleash-maven-plugin -> 3.2.0`
+- Update `version.unleash-scm-provider-git -> 3.2.0`
+- Add dependency `org.codehaus.mojo:extra-enforcer-rules:1.9.0` to Maven enforcer plugin
+
+### 📦 Updates
+- Update property `<version.unleash-maven-plugin>3.2.0</version.unleash-maven-plugin>`
+- Update property `<version.unleash-scm-provider-git>3.2.0</version.unleash-scm-provider-git>`
+- Add property `<version.extra-enforcer-rules>1.9.0</version.extra-enforcer-rules>`
+- Add dependency `org.codehaus.mojo:extra-enforcer-rules:1.9.0` to Maven enforcer plugin
+
+### 📝 Usage
+- For details on usage please have a look to the comments in [pom.xml](pom.xml)
+- Use as parent pom:
+  ```
+  <parent>
+    <groupId>io.github.mavenplugins</groupId>
+    <artifactId>org-parent</artifactId>
+    <version>9</version>
   </parent>
   ```
 
@@ -303,7 +345,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - This is just a dummy placeholder to make the parser of GHCICD/release-notes-from-changelog@v1 happy!
 -->
 
-[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v8..HEAD
+[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v9..HEAD
+[9]: https://github.com/mavenplugins/org-parent/compare/v8..v9
 [8]: https://github.com/mavenplugins/org-parent/compare/v7..v8
 [7]: https://github.com/mavenplugins/org-parent/compare/v6..v7
 [6]: https://github.com/mavenplugins/org-parent/compare/v5..v6
