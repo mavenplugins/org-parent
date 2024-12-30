@@ -110,12 +110,12 @@
     <version.maven-source-plugin>3.0.1</version.maven-source-plugin>
     <version.maven-help-plugin>3.4.0</version.maven-help-plugin>
     <version.build-helper-maven-plugin>3.4.0</version.build-helper-maven-plugin>
-    <version.maven-antrun-plugin>1.8</version.maven-antrun-plugin>
+    <version.maven-antrun-plugin>3.1.0</version.maven-antrun-plugin>
     <version.maven-install-plugin>2.5.2</version.maven-install-plugin>
     <version.maven-deploy-plugin>2.8.2</version.maven-deploy-plugin>
     <version.maven-release-plugin>2.5.3</version.maven-release-plugin>
     <!-- Plugin dependency versions -->
-    <version.antrun.ant>1.8.4</version.antrun.ant>
+    <version.antrun.ant>1.10.15</version.antrun.ant>
     <version.antrun.ant-contrib>1.0b3</version.antrun.ant-contrib>
     <!-- Sonatype Nexus Staging Plugin version -->
     <version.nexus-staging-maven-plugin>1.7.0</version.nexus-staging-maven-plugin>

@@ -76,13 +76,38 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![10 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=9)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/10)
+[![11 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=11)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/11)
 
 ### Summary
 - TBD
 
 ### 📦 Updates
 - TBD
+
+### 📝 Usage
+- For details on usage please have a look to the comments in [pom.xml](pom.xml)
+- Use as parent pom:
+  ```
+  <parent>
+    <groupId>io.github.mavenplugins</groupId>
+    <artifactId>org-parent</artifactId>
+    <version>11</version>
+  </parent>
+  ```
+
+
+## [10]
+<!-- !!! Align version in badge URLs as well !!! -->
+[![10 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=10)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/10)
+
+### Summary
+- Fix vulnerability warning on ant:
+  - Update `version.maven-antrun-plugin -> 3.1.0`
+  - Update `version.antrun.ant -> 1.10.15`
+
+### 🔒 Security
+- Update property `<version.maven-antrun-plugin>3.1.0</version.maven-antrun-plugin>`
+- Update property `<version.antrun.ant>1.10.15</version.antrun.ant>`
 
 ### 📝 Usage
 - For details on usage please have a look to the comments in [pom.xml](pom.xml)
@@ -345,7 +370,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - This is just a dummy placeholder to make the parser of GHCICD/release-notes-from-changelog@v1 happy!
 -->
 
-[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v9..HEAD
+[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v10..HEAD
+[10]: https://github.com/mavenplugins/org-parent/compare/v9..v10
 [9]: https://github.com/mavenplugins/org-parent/compare/v8..v9
 [8]: https://github.com/mavenplugins/org-parent/compare/v7..v8
 [7]: https://github.com/mavenplugins/org-parent/compare/v6..v7
