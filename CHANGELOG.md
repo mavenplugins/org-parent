@@ -76,13 +76,41 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![11 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=11)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/11)
+[![12 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=12)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/12)
 
 ### Summary
 - TBD
 
 ### 📦 Updates
 - TBD
+
+### 📝 Usage
+- For details on usage please have a look to the comments in [pom.xml](pom.xml)
+- Use as parent pom:
+  ```
+  <parent>
+    <groupId>io.github.mavenplugins</groupId>
+    <artifactId>org-parent</artifactId>
+    <version>12</version>
+  </parent>
+  ```
+
+
+## [11]
+<!-- !!! Align version in badge URLs as well !!! -->
+[![11 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=11)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/11)
+
+### Summary
+- Update `version.unleash-maven-plugin -> 3.2.1`
+- Update `version.unleash-scm-provider-git -> 3.3.0`
+- Update `version.unleash-scm-provider-svn -> 3.0.2`
+- Update `version.cdi-plugin-hooks -> 0.2.1`
+
+### 📦 Updates
+- Update property `<version.unleash-maven-plugin>3.2.1</version.unleash-maven-plugin>`
+- Update property `<version.unleash-scm-provider-git>3.3.0</version.unleash-scm-provider-git>`
+- Update property `<version.unleash-scm-provider-svn>3.3.0</version.unleash-scm-provider-svn>`
+- Update property `<version.cdi-plugin-hooks>0.2.1</version.cdi-plugin-hooks>`
 
 ### 📝 Usage
 - For details on usage please have a look to the comments in [pom.xml](pom.xml)
@@ -370,7 +398,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - This is just a dummy placeholder to make the parser of GHCICD/release-notes-from-changelog@v1 happy!
 -->
 
-[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v10..HEAD
+[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v11..HEAD
+[11]: https://github.com/mavenplugins/org-parent/compare/v10..v11
 [10]: https://github.com/mavenplugins/org-parent/compare/v9..v10
 [9]: https://github.com/mavenplugins/org-parent/compare/v8..v9
 [8]: https://github.com/mavenplugins/org-parent/compare/v7..v8
