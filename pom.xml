@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.github.mavenplugins</groupId>
   <artifactId>org-parent</artifactId>
-  <version>12-SNAPSHOT</version>
+  <version>12</version>
   <packaging>pom</packaging>
 
   <name>mavenplugins org parent</name>
@@ -21,7 +19,7 @@
   <scm>
     <connection>scm:git:https://github.com/mavenplugins/org-parent.git</connection>
     <url>https://github.com/mavenplugins/org-parent</url>
-    <tag>HEAD</tag>
+    <tag>v12</tag>
   </scm>
 
   <issueManagement>
@@ -144,7 +142,7 @@
     <!-- Note: Overwrite <phase.attach-javadocs> with none or empty value, if attached-javadocs must be skipped -->
     <phase.attach-javadocs>package</phase.attach-javadocs>
     <!-- Note: Override javadoc.doclint if required. This must be set for JAVADOC >= 8 only! -->
-    <javadoc.doclint />
+    <javadoc.doclint/>
     <skip.gpg.signing>true</skip.gpg.signing>
     <!-- Maven Toolchain -->
     <toolchain.executionEnablePhase>validate</toolchain.executionEnablePhase>
@@ -152,7 +150,7 @@
     <toolchain.executionPhase>${toolchain.executionDisablePhase}</toolchain.executionPhase>
     <!-- Note: toolchain.jdkVersion is empty by default. It is supposed to be either set by profile 'toolchain' below,
                by -D option via MAVEN_OPTS, on mvn commandline or by settings.xml -->
-    <toolchain.jdkVersion />
+    <toolchain.jdkVersion/>
     <!-- Sonatype staging -->
     <!-- staging.autoPublish: should be set to false for testing on release version deployments. -->
     <staging.autoPublish>true</staging.autoPublish>
@@ -190,9 +188,9 @@
     <maven.compiler.target>${version.java}</maven.compiler.target>
     <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
     <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
-    <maven.compiler.meminitial />
-    <maven.compiler.maxmem />
-    <maven.compiler.compilerArgument />
+    <maven.compiler.meminitial/>
+    <maven.compiler.maxmem/>
+    <maven.compiler.compilerArgument/>
   </properties>
 
   <build>
@@ -432,7 +430,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore />
+                        <ignore/>
                       </action>
                     </pluginExecution>
                     <pluginExecution>
@@ -445,7 +443,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore />
+                        <ignore/>
                       </action>
                     </pluginExecution>
                     <pluginExecution>
@@ -458,7 +456,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore />
+                        <ignore/>
                       </action>
                     </pluginExecution>
                   </pluginExecutions>
