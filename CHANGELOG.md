@@ -76,7 +76,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![12 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=12)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/12)
+[![13 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=13)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/13)
 
 ### Summary
 - TBD
@@ -96,9 +96,35 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   ```
 
 
+## [12]
+<!-- !!! Align version in badge URLs as well !!! -->
+[![12 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=12)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/12)
+
+### Summary
+- Migrate to publish artifacts via Sonatype Maven Central Portal API
+  - replace `nexus-staging-maven-plugin` by `central-publishing-maven-plugin`
+- Update `version.unleash-maven-plugin -> 3.3.0`
+- Add `version.central-publishing-maven-plugin -> 0.8.0`
+
+### 📦 Updates
+- Update property `<version.unleash-maven-plugin>3.3.0</version.unleash-maven-plugin>`
+- Add property `<version.central-publishing-maven-plugin>0.8.0</version.central-publishing-maven-plugin>`
+
+### 📝 Usage
+- For details on usage please have a look to the comments in [pom.xml](pom.xml)
+- Use as parent pom:
+  ```
+  <parent>
+    <groupId>io.github.mavenplugins</groupId>
+    <artifactId>org-parent</artifactId>
+    <version>12</version>
+  </parent>
+  ```
+
+
 ## [11]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![11 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=11)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/11)
+[![11 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=11)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/11)
 
 ### Summary
 - Update `version.unleash-maven-plugin -> 3.2.1`
@@ -126,7 +152,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [10]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![10 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=10)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/10)
+[![10 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=10)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/10)
 
 ### Summary
 - Fix vulnerability warning on ant:
@@ -151,7 +177,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [9]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![9 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=9)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/9)
+[![9 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=9)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/9)
 
 ### Summary
 - Update `version.unleash-maven-plugin -> 3.2.0`
@@ -178,7 +204,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [8]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![8 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=8)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/8)
+[![8 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=8)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/8)
 
 ### Summary
 - Update `version.unleash-maven-plugin -> 3.1.0`
@@ -202,7 +228,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [7]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![7 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=7)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/7)
+[![7 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=7)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/7)
 
 ### Summary
 - Update `version.unleash-maven-plugin -> 3.0.3`
@@ -224,7 +250,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [6]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![6 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=6)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/6)
+[![6 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=6)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/6)
 
 ### Summary
 - Update `version.unleash-maven-plugin -> 3.0.1`
@@ -252,7 +278,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [5]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![5 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=5)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/5)
+[![5 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=5)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/5)
 
 ### Summary
 - Update `version.unleash-maven-plugin -> 3.0.0`
@@ -280,7 +306,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [4]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![4 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=4)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/4)
+[![4 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=4)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/4)
 
 ### Summary
 - Update `version.unleash-maven-plugin -> 2.11.0`
@@ -312,7 +338,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [3]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![3 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=3)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/3)
+[![3 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=3)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/3)
 
 ### Summary
 - Fix profile `m2e`
@@ -336,7 +362,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![2 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=2)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/2)
+[![2 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=2)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/2)
 
 ### Summary
 - Default groupId for all unleash plugins is now `io.github.mavenplugins`
@@ -368,7 +394,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![1 Badge](https://img.shields.io/nexus/r/io.github.mavenplugins/org-parent?server=https://s01.oss.sonatype.org&label=Maven%20Central&queryOpt=:v=1)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/1)
+[![1 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=1)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/1)
 
 ### Summary
 - Initial release
@@ -398,7 +424,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - This is just a dummy placeholder to make the parser of GHCICD/release-notes-from-changelog@v1 happy!
 -->
 
-[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v11..HEAD
+[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v12..HEAD
+[12]: https://github.com/mavenplugins/org-parent/compare/v11..v12
 [11]: https://github.com/mavenplugins/org-parent/compare/v10..v11
 [10]: https://github.com/mavenplugins/org-parent/compare/v9..v10
 [9]: https://github.com/mavenplugins/org-parent/compare/v8..v9
