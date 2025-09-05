@@ -96,6 +96,37 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   ```
 
 
+## [13]
+<!-- !!! Align version in badge URLs as well !!! -->
+[![13 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=13)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/13)
+
+### Summary
+- Update `org.sonatype.central:central-publishing-maven-plugin` to `io.github.mavenplugins:central-publishing-maven-plugin`
+- Update `version.central-publishing-maven-plugin -> 1.1.0`
+- Update `version.unleash-maven-plugin -> 3.3.1`
+- Update Maven Central staging progress timeout per state:
+  - Validated timeout: 1817s
+  - Published timeout: 7268s
+
+### 📦 Updates
+- Update property `<version.unleash-maven-plugin>3.3.1</version.unleash-maven-plugin>`
+- Update property `<version.central-publishing-maven-plugin>1.1.0</version.central-publishing-maven-plugin>`
+- Update `org.sonatype.central:central-publishing-maven-plugin` to `io.github.mavenplugins:central-publishing-maven-plugin`
+- Add property `<staging.validatedProgressTimeoutSeconds>1817</staging.validatedProgressTimeoutSeconds>`
+- Add property `<staging.publishedProgressTimeoutSeconds>7268</staging.publishedProgressTimeoutSeconds>`
+
+### 📝 Usage
+- For details on usage please have a look to the comments in [pom.xml](pom.xml)
+- Use as parent pom:
+  ```
+  <parent>
+    <groupId>io.github.mavenplugins</groupId>
+    <artifactId>org-parent</artifactId>
+    <version>13</version>
+  </parent>
+  ```
+
+
 ## [12]
 <!-- !!! Align version in badge URLs as well !!! -->
 [![12 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=12)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/12)
@@ -424,7 +455,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - This is just a dummy placeholder to make the parser of GHCICD/release-notes-from-changelog@v1 happy!
 -->
 
-[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v12..HEAD
+[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v13..HEAD
+[13]: https://github.com/mavenplugins/org-parent/compare/v12..v13
 [12]: https://github.com/mavenplugins/org-parent/compare/v11..v12
 [11]: https://github.com/mavenplugins/org-parent/compare/v10..v11
 [10]: https://github.com/mavenplugins/org-parent/compare/v9..v10

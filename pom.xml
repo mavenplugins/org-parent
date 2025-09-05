@@ -118,13 +118,14 @@
     <version.antrun.ant>1.10.15</version.antrun.ant>
     <version.antrun.ant-contrib>1.0b3</version.antrun.ant-contrib>
     <!-- Sonatype Maven Central Publishing Plugin version -->
-    <version.central-publishing-maven-plugin>0.8.0</version.central-publishing-maven-plugin>
+    <groupId.central-publishing-maven-plugin>io.github.mavenplugins</groupId.central-publishing-maven-plugin>
+    <version.central-publishing-maven-plugin>1.1.0</version.central-publishing-maven-plugin>
     <!-- Unleash plugins related config -->
     <groupId.unleash.common>io.github.mavenplugins</groupId.unleash.common>
     <!-- Unleash Maven Plugin -->
     <groupId.unleash-maven-plugin>${groupId.unleash.common}</groupId.unleash-maven-plugin>
     <artifactId.unleash-maven-plugin>unleash-maven-plugin</artifactId.unleash-maven-plugin>
-    <version.unleash-maven-plugin>3.3.0</version.unleash-maven-plugin>
+    <version.unleash-maven-plugin>3.3.1</version.unleash-maven-plugin>
     <!-- Unleash SCM Provider -->
     <groupId.unleash-scm-provider>${groupId.unleash.common}</groupId.unleash-scm-provider>
     <groupId.unleash-scm-provider-git>${groupId.unleash-scm-provider}</groupId.unleash-scm-provider-git>
@@ -154,15 +155,12 @@
     <!-- Sonatype staging -->
     <!-- staging.autoPublish: should be set to false for testing on release version deployments. -->
     <staging.autoPublish>true</staging.autoPublish>
-    <staging.dropPhaseNever>_NEVER_</staging.dropPhaseNever>
-    <staging.dropPhaseDeploy>deploy</staging.dropPhaseDeploy>
-    <!-- Note: staging.dropPhase: must be either ${staging.dropPhaseNever} or ${staging.dropPhaseDeploy} -->
-    <!-- It should be overridden e.g. for testing on artifact release version deployments. -->
-    <!-- <staging.dropPhase>${staging.dropPhaseNever}</staging.dropPhase> -->
-    <staging.dropPhase>_NEVER_</staging.dropPhase>
+    <staging.dropValidated>false</staging.dropValidated>
     <staging.publishPhase>deploy</staging.publishPhase>
     <!-- Maximum amount of seconds to waitUntil a state has been reached. Cannot be less than 1800 seconds. -->
-    <staging.progressTimeoutSeconds>1817</staging.progressTimeoutSeconds>
+    <staging.validatedProgressTimeoutSeconds>1817</staging.validatedProgressTimeoutSeconds>
+    <staging.publishedProgressTimeoutSeconds>7268</staging.publishedProgressTimeoutSeconds>
+    <staging.progressTimeoutSeconds>${staging.publishedProgressTimeoutSeconds}</staging.progressTimeoutSeconds>
     <!-- Amount of seconds between intervals before checking if a state has been reached. Cannot be less then 5 seconds. -->
     <staging.progressPauseDurationSeconds>6</staging.progressPauseDurationSeconds>
     <!-- The plugin can wait until certain states have been reached.
@@ -533,8 +531,9 @@
       </activation>
       <properties>
         <staging.autoPublish>false</staging.autoPublish>
+        <staging.dropValidated>true</staging.dropValidated>
         <staging.waitUntil>${staging.waitUntilValidatedState}</staging.waitUntil>
-        <staging.dropPhase>${staging.dropPhaseDeploy}</staging.dropPhase>
+        <staging.progressTimeoutSeconds>${staging.validatedProgressTimeoutSeconds}</staging.progressTimeoutSeconds>
       </properties>
     </profile>
     <profile>
@@ -548,7 +547,7 @@
       <properties>
         <staging.autoPublish>false</staging.autoPublish>
         <staging.waitUntil>${staging.waitUntilValidatedState}</staging.waitUntil>
-        <staging.dropPhase>${staging.dropPhaseNever}</staging.dropPhase>
+        <staging.progressTimeoutSeconds>${staging.validatedProgressTimeoutSeconds}</staging.progressTimeoutSeconds>
         <organization.stagingServerId>${organization.snapshotNexusRepoId}</organization.stagingServerId>
       </properties>
     </profile>
@@ -574,7 +573,7 @@
             </configuration>
           </plugin>
           <plugin>
-            <groupId>org.sonatype.central</groupId>
+            <groupId>${groupId.central-publishing-maven-plugin}</groupId>
             <artifactId>central-publishing-maven-plugin</artifactId>
             <version>${version.central-publishing-maven-plugin}</version>
             <extensions>true</extensions>
@@ -593,6 +592,7 @@
                  published, uploaded, validated -->
               <waitUntil>${staging.waitUntil}</waitUntil>
               <autoPublish>${staging.autoPublish}</autoPublish>
+              <dropValidated>${staging.dropValidated}</dropValidated>
               <checksums>all</checksums>
             </configuration>
             <executions>
@@ -606,15 +606,6 @@
                   <goal>publish</goal>
                 </goals>
               </execution>
-              <!-- With central-publishing-maven-plugin there is no dropping anymore. -->
-              <!-- Validated but not published deployments will be removed after 90 days. -->
-              <!-- <execution>-->
-              <!--   <id>STAGING_EXPLICIT_DROP_AFTER_DEPLOY</id>-->
-              <!--   <phase>${staging.dropPhase}</phase>-->
-              <!--   <goals>-->
-              <!--     <goal>drop</goal>-->
-              <!--   </goals>-->
-              <!-- </execution>-->
             </executions>
           </plugin>
         </plugins>
