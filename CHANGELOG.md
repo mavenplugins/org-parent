@@ -76,7 +76,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 <!-- !!! Align version in badge URLs as well !!! -->
-[![13 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=13)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/13)
+[![15 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=15)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/15)
 
 ### Summary
 - TBD
@@ -91,7 +91,35 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   <parent>
     <groupId>io.github.mavenplugins</groupId>
     <artifactId>org-parent</artifactId>
-    <version>12</version>
+    <version>15</version>
+  </parent>
+  ```
+
+
+## [14]
+<!-- !!! Align version in badge URLs as well !!! -->
+[![14 Badge](https://img.shields.io/maven-central/v/io.github.mavenplugins/org-parent?label=Maven%20Central&filter=14)](https://central.sonatype.com/artifact/io.github.mavenplugins/org-parent/14)
+
+### Summary
+- Update `version.central-publishing-maven-plugin -> 1.3.1`
+- Update `version.unleash-maven-plugin -> 3.3.3`
+- Update `version.unleash-scm-provider-git -> 3.3.1`
+- Update `version.cdi-plugin-hooks -> 0.2.2`
+
+### 📦 Updates
+- Update property `<version.unleash-maven-plugin>3.3.3</version.unleash-maven-plugin>`
+- Update property `<version.central-publishing-maven-plugin>1.3.1</version.central-publishing-maven-plugin>`
+- Update property `<version.unleash-scm-provider-git>3.3.1</version.unleash-scm-provider-git>`
+- Update property `<version.cdi-plugin-hooks>0.2.2</version.cdi-plugin-hooks>`
+
+### 📝 Usage
+- For details on usage please have a look to the comments in [pom.xml](pom.xml)
+- Use as parent pom:
+  ```
+  <parent>
+    <groupId>io.github.mavenplugins</groupId>
+    <artifactId>org-parent</artifactId>
+    <version>14</version>
   </parent>
   ```
 
@@ -455,7 +483,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - This is just a dummy placeholder to make the parser of GHCICD/release-notes-from-changelog@v1 happy!
 -->
 
-[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v13..HEAD
+[Unreleased]: https://github.com/mavenplugins/org-parent/compare/v14..HEAD
+[14]: https://github.com/mavenplugins/org-parent/compare/v13..v14
 [13]: https://github.com/mavenplugins/org-parent/compare/v12..v13
 [12]: https://github.com/mavenplugins/org-parent/compare/v11..v12
 [11]: https://github.com/mavenplugins/org-parent/compare/v10..v11
